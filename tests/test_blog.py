@@ -9,7 +9,7 @@ class BlogModelTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-         self.new_user = User(username='Ndundiro'email = "ndudndiro@proj.com" password="pass123")
+        self.new_user = User(username='Ndundiro' email="ndudndiro@proj.com" password="pass123")
         self.new_blog = Blog(title = 'Dont worry be happy', body = 'Life is what you make it.', posted =2/14/2019, id = 1, post_id = 1)
 
     def test_instance(self):
