@@ -5,3 +5,4 @@ def get_quotes():
     quotes = response.json()
 
     return quotes
+

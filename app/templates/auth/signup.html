@@ -1,25 +1,32 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 {{super()}}
+
 
 <div class="container content-section">
     <form method="POST" action="">
         {{ form.hidden_tag() }}
 
-
-
-
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Log In</legend>
+            <legend class="border-bottom mb-4">Join Today</legend>
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label")}}
+                {% if form.username.errors %}
+                {{ form.username(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors%}
+                    <span> {{ error }} </span>
+                    {% endfor%}
+                </div>
+                {% else %}
+                {{ form.username(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
 
-
-            <!-- .................................EMAIL field log in............................. -->
 
             <div class="form-group">
                 {{ form.email.label(class="form-control-label")}}
-                {% if form.email.errors %}
+                {% if form.username.errors %}
                 {{ form.email(class="form-control form-control-lg is-invalid")}}
                 <div class="invalid-feedback">
                     {% for error in form.email.errors%}
@@ -31,7 +38,6 @@
                 {% endif %}
             </div>
 
-            <!-- .................................PASWORD FIELD............................. -->
 
             <div class="form-group">
                 {{ form.password.label(class="form-control-label")}}
@@ -48,16 +54,21 @@
                 {% endif %}
             </div>
 
+
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-control-label")}}
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors%}
+                    <span> {{ error }} </span>
+                    {% endfor%}
+                </div>
+                {% else %}
+                {{ form.confirm_password(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
         </fieldset>
-
-        <!-- ...........................Remember a user once they are logged in....................... -->
-
-        <div class="form-check">
-            {{ form.remember(class="form-check-input")}}
-            {{ form.remember(class="form-check-label")}}
-        </div>
-
-        <!-- .........................SUBMIT BUTTON............................. -->
 
         <div class="form-group">
             {{ form.submit(class="btn btn-outline-info")}}
@@ -65,20 +76,15 @@
 
     </form>
 
-    <!-- ...................Forgot password.Reset it......................... -->
-
-    <small class="text-muted">
-        <a href="#" class="ml-2">Forgot Password</a>
-    </small>
-
-    <!-- .............................IF No account,redirect to sign up................... -->
 
     <div class="border-top">
         <small class="text-muted">
-            Need an account? <a href="{{ url_for('auth.signup')}}" class="ml-2">Register</a>
+            Already have an account? <a href="{{ url_for('auth.login')}}" class="ml-2">Sign IN</a>
         </small>
     </div>
 </div>
 
 
 {% endblock %}
+
+</div>

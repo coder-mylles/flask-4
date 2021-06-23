@@ -1,15 +1,15 @@
 from flask import render_template, request, redirect, url_for,abort,flash
-from . import main	from . import main
+from . import main
 from .. models import Blog, Comment
 from ..requests import get_quotes
-from .. import db	from .. import db
+from .. import db
 from flask_login import login_user,current_user,login_required,logout_user
 from .forms import BlogpostForm, CommentForm
 
-
-
-def index():	def index():
-    return '<h1> Hello World </h1>'	    quotes = get_quotes()
+@main.route('/')
+@main.route('/home')
+def index():
+    quotes = get_quotes()
     blogs = Blog.query.all()
     return render_template('index.html',quotes=quotes,  blogs=blogs[::-1])
 
@@ -46,7 +46,7 @@ def blog(post_id):
 @login_required
 def update_blog(blog_id):
     blog = Blog.query.get_or_404(blog_id)
-
+   
     form= BlogpostForm()
     if form.validate_on_submit():
         blog.title = form.title.data

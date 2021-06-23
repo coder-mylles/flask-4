@@ -12,7 +12,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
     # blogposts = db.relationship('Blog',backref='author', lazy='dynamic')
-
+    
     @login_manager.user_loader
     def get_user(user_id):
         return User.query.get(user_id)
@@ -53,3 +53,9 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f"Comment('{self.content}', '{self.dateposted}')"
+
+
+
+
+    
+

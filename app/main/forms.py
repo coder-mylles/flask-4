@@ -11,3 +11,8 @@ class BlogpostForm(FlaskForm):
 class CommentForm(FlaskForm):
     comment = TextAreaField("Give your thoughts")
     submit = SubmitField('Submit')
+
+
+
+
+
