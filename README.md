@@ -7,7 +7,7 @@ Martin
 Blog is a flask app that allows writers to write and post their opinions in a blog while allowing other users to read the blogs and comment on them.Additionally writers can access the comments written by users and delete them if they find them insulting or degrading.
 
 ## Screenshot
-<img src="" width="1000">
+<img src="https://github.com/martin-moringa/flask-4/blob/main/Screenshot%20from%202021-06-24%2011-04-07.png" width="1000">
 
 
 ## User Stories
